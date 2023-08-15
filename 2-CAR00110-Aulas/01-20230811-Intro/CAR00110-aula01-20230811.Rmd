@@ -1,0 +1,172 @@
+---
+title: "CAR00110 - Aula 01"
+subtitle: "Linguagem R e Sintaxe Básica"
+fontsize: 10pt
+author: "Prof. Lucas Helal, MMSc, PhD"
+date: "2023-08-10"
+output:
+  beamer_presentation: 
+     incremental: true
+     theme: "Madrid"
+     color: "dolphin"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## O que é a linguagem R?
+
+\centering
+
+![](images/Unknown.png){width="200"}
+
+## O que é a linguagem R?
+
+```{r, out.width="85%", fig.align='center', echo=FALSE, warning=FALSE}
+rm(list = ls())
+library(datasets)
+library(ggplot2)
+data(airquality)
+
+aq_trim <- airquality[which(airquality$Month == 7 |
+                            airquality$Month == 8 |
+                            airquality$Month == 9), ]
+aq_trim$Month <- factor(aq_trim$Month,
+                        labels = c("July", "August", "September"))
+
+fill = c("steelblue", "yellowgreen", "violetred1")
+
+p6 <- ggplot(aq_trim, aes(x = Day, y = Ozone, size = Wind, fill = Month)) +
+        geom_point(shape = 21) +
+        ggtitle("Air Quality in New York by Day") +
+        labs(x = "Day of the month", y = "Ozone (ppb)") +
+        scale_x_continuous(breaks = seq(1, 31, 5)) +
+        scale_fill_manual(values = fill) +
+        scale_size(range = c(1, 10))
+p6
+```
+
+## O que é a linguagem R?
+
+\centering
+
+\</\> \</\> \</\>
+
+.
+
+.
+
+\centering
+
+**AND**
+
+.
+
+.
+
+\centering
+
+$\hat y=\beta_o + \beta_1x_1 +\ ...\ +\beta_nx_n + \varepsilon_i$
+
+## O que é a linguagem R?
+
+\centering
+
+![](images/The_C_Programming_Language_logo.svg.png){width="50"}
+
+\centering
+
+.
+
+![](images/ISO_C++_Logo.svg-01.png){width="50"}
+
+\centering
+
+,
+
+![](images/Python-logo-notext.svg.png){width="60"}
+
+## O que é a linguagem R?
+
+\centering
+
+Cria códigos.. faz operações diversas.. suporta outras linguagens... e além de
+tudo, **opera estatística**
+
+## É hora de começar - R Studio?
+
+![](images/print 2023-08-11 às 16.41.23.png){width="800"}
+
+## É hora de começar - R Studio?
+
+\centering
+
+![](images/print 2023-08-11 às 16.42.35.png){width="80%"}
+
+## É hora de começar - R Studio?
+
+\centering
+
+![](images/print 2023-08-11 às 16.53.05.png){width="110%"}
+
+## Como o R se comunica?
+
+1 Atalhos/*Shortcuts*
+
+_**Assignment**_: `<-`, colocamos: ...
+
+_**Pipe**_: `|>` ou `%p%`, colocamos: ...
+
+**Salvar**: `File \ Save As `, colocamos: ...
+
+**Rodar comando**: ficar apertandoo o `play` o tempo inteiro ou...
+
+
+## Como o R se comunica?
+
+2 Operações
+
+```{r, echo=TRUE}
+2+2
+
+2-1
+
+log(10)
+
+sqrt(64)
+```
+
+## Como o R se comunica?
+
+3 Linhas de comando
+
+```{r, ECHO=TRUE}
+x <- c(10,11,12,13,14,15)
+mean(x)
+sd(x)
+median(x)
+var(x)
+```
+
+## Como o R se comunica?
+
+3 Linhas de comando
+
+```{r, ECHO=TRUE}
+x <- data(dataset) ### crio um objeto contendo os dados
+
+model <- funcao((modelo, dataset), funcao_ligacao, distribuicao) ### no idioma humano
+
+model <- glm(y ~ a + b + a*b, data=x, link=log, family=poisson) ### no idioma R
+model ### l%e os resultaddos
+summary
+
+```
+
+## Como o R se comunica?
+
+4 Orientação à objetos
+
+
+

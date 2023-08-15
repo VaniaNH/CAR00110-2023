@@ -1,0 +1,633 @@
+---
+title: "CAR00110 - Aula 01"
+author: "Prof. Lucas Helal, MMSc, PhD"
+date: "2023-08-12"
+output:
+  pdf_document: default
+  html_document: default
+subtitle: 'Linguagem R: Sintaxe Básica'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+## 1. A representação simbólica da linguagem humana.
+
+Notações e símbolos, de forma escrita, são corriqueiramente usados para
+substituir expressões da convivência humana em diversas circunstâncias do nosso
+dia a dia.
+
+
+Por exemplo, suponhamos que você tenha realizado anotações ao acordar pela manhã:
+
+
+E então você rasurou o texto com marcações...
+
+
+Está claro que você quis comunicar alguma coisa, não? Quer seja para uma outra
+pessoa que possa ler; quer seja pra você mesmo... Com símbolos comuns,
+fáceis de interpretar, tanto pra mim quanto pra você... e provavelmente para a
+maioria das pessoas ao redor do mundo. 
+
+
+Porém, é provável que nem sempre tenha sido assim. Mesmo depois do advento do conceito de idioma e também de escrita.
+Nem sempre foi assim para a humanidade, nem sempre foi assim para mim ou para
+você, que precisamos de tempo, após aprender a ler e escrever. Como tantas
+outras coisas - mas, depois de um tempo ficou fácil e universal; deixou de ser
+assustador. E aqui está por que ressalto isto.
+
+
+Na ciência, o uso de notações e outras formas de comunicar, cada vez mais
+inovadoras, é abundante. Algumas vezes universal, algumas vezes de significado
+particular. Ponto é que todo cientista que consegue entender notações de sua
+área, assim como linguagens não-humanas, hoje, nem sempre conseguia. 
+
+
+Portanto, ao discutirmos sintaxe e notação científica particulares da Estatistica e da
+programação (em nosso caso particular, a linguagem R), é natural que precisemos
+esperar a curva de aprendizado se fazer valer; e fundamental não se assustar.
+
+
+--------------------------------------------------------------------------------------------
+
+### 1.1 Taxonomia Aplicada à Ciência
+
+
+#### 1.1.1 Fundamentos
+
+$\\$
+
+`Metafísica`: ramo da Filosofia que se ocupa da natureza fundamental da
+realidade
+
+
+`Epistemologia`: ramo da Filosofia que se ocupa do conhecimento científico; por
+vezes chamada de `Filosofia da Ciência`
+
+
+`Conhecimento`: ato de conhecer, sendo uma intersecção de crenças e da verdade
+
+
+`Crença`: estado imaginário em que se assume algo ser verdade ou prováve
+
+
+`Verdade`: propriedade de estar em acordo com o fato real ou a realidade; não é
+sinônimo de científico e vice-versa; é independente da crença ou do conhecimento
+prévio
+
+
+`Ontologia`: ramo da Filosofia que atribui o conceito de realidade às coisas sem
+necessariamente se apropriar de fatos, onde a prova lógica é suficiente
+
+
+`Ciência`: *stricto sensu*, a maneira de adquirir conhecimento com base no
+método cienfífico; maneira de se apropriar da verdade por meio do método
+científico; só é declarativa por meio daquilo que é empírico
+
+
+`Empírico`: tipo de conhecimento gerado por meio de testes e experimentos;
+fundamental para a existência do conceito de Ciência
+
+
+`Método Científico`: metodologia de sistema próprio criada como uma das
+alternativas possíveis para a apropriação da realidade
+
+
+#### 1.1.2 Método Científico
+
+
+#### Conceitos
+
+$\\$
+
+`Teoria`: são modelos explicativos bem fundamentados para descrever eventos que
+existem na natureza, envolvendo fatos, lei, hipóteses, evidências que resultaram
+de experimentos baseados no método científico
+
+
+`Teorema`: proposição demonstrável por axiomas e postulados
+
+
+`Lei`: regra que descreve um fenômeno ocorrente com certa regularidade, provada
+empiricamente
+
+
+`Corolário`: consequências de um teorema; é uma afirmação; deduzida de uma
+verdade já demonstrada
+
+
+`Princípio`: proposição que se põe no início de uma dedução, assumida como não
+pertencente ao que vai ser deduzido, e, provisoriamente, admitida como
+inquestionável
+
+
+`Postulado`: proposição que foi admitida como verdade sem necessidade de
+demonstração, mas que o caráter não-empírico não é aparente
+
+
+`Axioma`: proposição que foi admitida como verdade sem necessidade de
+demonstração, mas que é visivelmente de caráter não-empírico
+
+
+`Indução`: extrapolação de um determinado atributo observado em casos
+particulares para o todo
+
+
+`Dedução`: caracterização de um atributo a casos particulares por meio do que
+foi observado no todo
+
+
+`Inerte`: atributo próprio de uma teoria, de ser imune à argumentos de
+autoridade, hierarquias ou daquilo que não é capaz de refutá-la que não seja
+empiricamente
+
+
+#### Particularidades
+
+$\\$
+
+`Observação`: qualquer coisa que se modifique em um experimento científico
+
+
+`Hipótese nula`: uma afirmação temporária a se tentar refutar; uma teoria; ponto
+de partida que existe no mundo das ideias; local de referência para se testar
+uma hipótese
+
+
+`Hipótese alternativa`: aquilo que o pesquisador imagina ser verossímel de
+encontrar em um dado experimento; é resultado da pergunta de pesquisa; afirmação
+temporária como resposta à pergunta de pesquisa, anterior ao experimento
+
+
+`Dado`: conjunto de significado que comporá uma ou mais variáveis (inclusive
+exposições e desfechos)
+
+
+`Variável`: é um aglutinado de dados que compõe parte do experimento; um
+conceito operacionalizado que variará experimento a experimento
+
+
+`Exposição`: um tipo de variável à qual atribuímos a capacidade de modificar
+outra variável; o fator causal/associativo candidato em uma dada hipótese pode
+ser chamado de exposição
+
+
+`Desfecho`: um tipo de variável à qual atribuímos a capacidade de ser modificada
+por outra variável; o fator que indicará evidência ou não de que a hipótese em
+estudo foi tensionada
+
+
+#### Argumentos Clássicos
+
+$\\$
+$\\$
+`Modus ponens`
+$\\$
+$\\$
+Também conhecido como afirmação do antecedente; regra de
+inferência simples denotada por $p \implies q,\ p \over \therefore\ q$, isto é:
+"$p$ implica $q$; $p$ é verdade; portanto, $q$ deve ser verdade."
+$\\$
+$\\$
+`Modus tollens`: 
+$\\$
+$\\$
+*"O modo que nega por negação."* Nome formal de uma regra de
+inferência indireta, denotado por $p \implies q,\ \neg\ q \over \therefore\ \neg\ p$, isto é: 
+"$p$ implica $q$; $q$ é falso; portanto, $p$ deve ser falso."
+$\\$
+$\\$
+`Silogismo hipotético`: 
+$\\$
+$\\$
+Conhecido como inferência por consequência, denotado 
+por: $p \implies q\ \land\ q \implies r \over \therefore\ p \implies r$, isto é:
+"$p$ implica $q$; $q$ implica $r$; portanto, $p$ implicar $r$ deve ser
+verdadeiro."
+
+
+#### Simbologia Lógica
+
+$\\$
+
+$\exists$: *existe pelo menos um...*
+$\\$
+$\\$
+$\exists!$: *existe um e apenas um...*
+$\\$
+$\\$
+$\nexists$: *não existe...*
+$\\$
+$\\$
+$\forall$: *para todo...*
+$\\$
+$\\$
+$\neg$: *negação*
+$\\$
+$\\$
+$\lor$: *ou*
+$\\$
+$\\$
+$\land$: *e*
+$\\$
+$\\$
+$\implies$: *implica*
+$\\$
+$\\$
+$\Rightarrow$: *o que está implicado está à direita*
+$\\$
+$\\$
+$\Longleftarrow$: *é implicado por...; somente se*
+$\\$
+$\\$
+$\Leftarrow$: *o que está implicado está à esquerda*
+$\\$
+$\\$
+$\iff$: *se, e somente se...*
+$\\$
+$\\$
+$\Leftrightarrow$: *equivale a...*
+$\\$
+$\\$
+$\equiv$: *equivale a...*
+$\\$
+$\\$
+$\therefore$: *então...*
+$\\$
+$\\$
+
+
+### 1.2 Taxonomia Aplicada à Estatística
+
+
+### Exemplo
+
+
+$p_1$: *A quantidade de vezes que o valor de uma variável aparece.*\`
+$\\$
+$p_2$: $f_j$
+$\\$
+$p_3$: $p_1 = p_2$, **onde**:
+$\\$
+$p1$ é a linguagem humana e $p2$ a notação usual para simbolizar, de forma genérica,
+que uma dada variável $e$, de valor $f$, apareceu ou aparecerá $j$ vezes.
+
+
+----------------------
+
+
+A isto chamamos de conversão, que pode ser congruente ou não-congruente - a
+primeira, depende de três critérios:  
+$\\$
+a) correspondência semântica entre entre os elementos; 
+$\\$
+b) a desambiguidade semântica dos elementos; 
+$\\$
+c) e uma únicaordem possível de disposição dos elementos. 
+
+$\\$
+
+Na premissa **P3**, caso o primeiro termo estivesse *em maiúsculo*; ou o segundo termo *sobrescrito* em vez de
+*subescrito*; a premissa **P3** não seria verdadeira, pois haveria violação da premissa **P2**, por não atender a convenção.
+$\\$
+
+## Vamos aprender Estatística em Linguagem R
+
+
+> O que você enxerga nesse gráfico?
+
+
+```{r, echo=FALSE}
+# library
+library(ggplot2)
+library(ggExtra)
+ 
+# The mtcars dataset is proposed in R
+head(mtcars)
+
+
+# dataset:
+data=data.frame(value=rnorm(10000, 173, 7))
+
+# basic histogram
+p <- ggplot(data, aes(x=value,y=..density..)) + 
+  geom_histogram(
+    col = "gray", 
+    fill = "gray60",
+    binwidth = 0.5) + 
+        theme(panel.background = element_rect(fill="white",
+                                        colour="white"),
+        panel.grid.major = element_line(linewidth = 0.1,
+                                        linetype = "solid",
+                                        colour = "grey10"),
+        panel.grid.minor = element_line(linewidth = 0.1,
+                                        linetype = "solid",
+                                        colour = "grey60"),
+    axis.title.x = element_text(margin=margin(t= 16, b= 8), size = 16),
+    axis.title.y = element_text(margin=margin(r= 16, l= 8), size = 14),
+    axis.text.y = element_text()
+  ) +
+  labs(x = "Distribuição de Alturas", y = "Densidade de Probabilidades") + 
+  scale_x_continuous(breaks = seq(130, 190, 10)) + 
+  scale_y_continuous(breaks = seq(0, 0.9, 0.01))
+p
+```
+
+
+> E neste gráfico?
+
+
+```{r, echo=FALSE}
+# library
+library(ggplot2)
+library(dplyr)
+library(hrbrthemes)
+
+# Build dataset with different distributions
+data <- data.frame(
+  type = c(rep("Distribuição de Alturas das Mulheres", 10000), rep("Distribuição de Alturas dos Homens", 10000)),
+  value = c(rnorm(10000, mean=164,sd=8), rnorm(10000, mean=173, sd=7))
+)
+
+# Represent it
+p <- data %>%
+  ggplot(aes(x=value, fill=type)) +
+    geom_histogram( color="#e9ecef", alpha=0.6, position = 'identity') +
+    scale_fill_manual(values=c("skyblue4", "pink3")) +
+  labs(x = "Distribuição de Alturas", y = "Densidade de Probabilidades") +
+  labs(fill = "Sexo") +
+  scale_x_continuous(breaks = seq(130, 190, 10)) + 
+  scale_y_continuous(breaks = seq(0, 0.9, 0.02))
+p
+```
+
+
+> A se a gente amostrar médias de mesmo tamanho K vezes?
+
+
+```{r, echo=TRUE}
+sum(sample(1:6, 2, replace = T))
+```
+
+
+Aqui estão todas as combinações possíveis de um conjunto $S={1,2,3,4,5,6}$ tomado $2 a 2 \therefore\ A=K_2$.
+
+
+\begin{align*}
+  &(1,1)	(1,2)	(1,3)	(1,4)	(1,5)	(1,6) \\ 
+  &(2,1)	(2,2)	(2,3)	(2,4)	(2,5)	(2,6) \\ 
+  &(3,1)	(3,2)	(3,3)	(3,4)	(3,5)	(3,6) \\ 
+  &(4,1)	(4,2)	(4,3)	(4,4)	(4,5)	(4,6) \\ 
+  &(5,1)	(5,2)	(5,3)	(5,4)	(5,5)	(5,6) \\ 
+  &(6,1)	(6,2)	(6,3)	(6,4)	(6,5)	(6,6)
+\end{align*}
+
+
+O que dá as seguintes probabilidades:
+
+
+\begin{align}
+  P(S) = 
+  \begin{cases} 
+    1/36, \ & S = 2 \\ 
+    2/36, \ & S = 3 \\
+    3/36, \ & S = 4 \\
+    4/36, \ & S = 5 \\
+    5/36, \ & S = 6 \\
+    6/36, \ & S = 7 \\
+    5/36, \ & S = 8 \\
+    4/36, \ & S = 9 \\
+    3/36, \ & S = 10 \\
+    2/36, \ & S = 11 \\
+    1/36, \ & S = 12
+  \end{cases}
+\end{align}
+
+
+### Simulação 1:
+
+```{r, echo=TRUE}
+# Vetor para desfechos
+S <- 2:12
+
+# Vetor para probabilidades
+PS <- c(1:6, 5:1) / 36
+
+# Esperança/Parâmeto de S
+ES <- sum(S * PS)
+
+# Variância de S
+VarS <- sum((S - c(ES))^2 * PS)
+VarS
+```
+
+
+> Então:
+
+```{r, echo=TRUE}
+S
+PS
+ES
+VarS
+```
+
+
+> Cria-se um mini data set:
+
+```{r}
+# Uma linha e duas colunas
+par(mfrow = c(1, 2))
+
+# Plota-se a distribuição de S
+barplot(PS, 
+        ylim = c(0, 0.2), 
+        xlab = "S", 
+        ylab = "Probability", 
+        col = "steelblue", 
+        space = 0, 
+        main = "Somatório de Duas Rodadas de um Dado")
+
+# Plota-se a distribuição de probabilidades
+probability <- rep(1/6, 6)
+names(probability) <- 1:6
+
+barplot(probability, 
+        ylim = c(0, 0.2), 
+        xlab = "D", 
+        col = "steelblue", 
+        space = 0, 
+        main = "O que acontece se eu jogo apenas um dado")
+```
+
+
+### O Teorema do Limite Central 
+
+
+A demonstração matematemática da média amostral $(\hat x)$
+
+$$
+{Y} = \frac{1}{n} \sum_{i=1}^n Y_i = \frac{1}{n} (Y_1 + Y_2 + \cdots + Y_n).
+$$
+$\\$
+$\\$
+
+
+A demonstração da estimativa da média e variância populacionais (parâmetros):
+
+$$
+E({Y}) = E\left(\frac{1}{n} \sum_{i=1}^n Y_i \right) = \frac{1}{n} E\left(\sum_{i=1}^n Y_i\right) = \frac{1}{n} \sum_{i=1}^n E\left(Y_i\right) = \frac{1}{n} \cdot n \cdot \mu_Y = \mu_Y
+$$
+$\\$
+$\\$
+$\\$
+
+\begin{align*}
+  \text{Var}({Y}) =& \text{Var}\left(\frac{1}{n} \sum_{i=1}^n Y_i \right) \\
+  =& \frac{1}{n^2} \sum_{i=1}^n \text{Var}(Y_i) + \frac{1}{n^2} \sum_{i=1}^n \sum_{j=1, j\neq i}^n \text{cov}(Y_i,Y_j) \\
+  =& \frac{\sigma^2_Y}{n} \\
+  =& \sigma_{{Y}}^2.
+\end{align*}
+
+$\\$
+$\\$
+$$
+\sigma_{{Y}} = \frac{\sigma_Y}{\sqrt{n}}.
+$$
+$\\$
+$\\$
+
+A distribuição amostral de médias se $X$ ~ $N$
+$\\$
+$\\$
+$$
+{Y} \sim \mathcal{N}(\mu_Y, \sigma_Y^2/n) 
+$$
+$\\$
+$\\$
+
+
+> Amostragem 
+
+
+```{r, echo=FALSE}
+# Tamanho e espaço amostral
+n <- 10
+reps <- 10000
+
+# Amostragem aleatória simples
+samples <- replicate(reps, rnorm(n)) # 10 x 10000 matriz de amostragem
+
+# Médias amostrais
+sample.avgs <- colMeans(samples)
+```
+
+
+> Aqui, plotaremos a distribuição amostral de médias
+
+
+```{r, echo=TRUE}
+# Check se 'sample.avgs' é um vetor
+is.vector(sample.avgs) 
+
+
+# Primeiras entradas no console
+head(sample.avgs)
+```
+
+
+> Histograma de Densidades
+
+```{r, echo=TRUE}
+# Plot do histograma
+hist(sample.avgs,        # chama a função
+     ylim = c(0, 1.4),   # limite superior e inferior vertical
+     col = "steelblue" , # cor
+     freq = F,           # atributo de reposição
+     breaks = 20)        # número de colunas
+
+# Distribuição de probabilidades (teórica) por cima do histograma
+curve(dnorm(x, sd = 1/sqrt(n)),      # chama a função `curve` e a função densidade de prob `dnorm`
+      col = "red",                   # cor da linha
+      lwd = "2",                     
+      add = T)
+```
+
+
+> Agora se, modificarmos o espaço amostral e os graus de liberdade
+
+
+```{r}
+# N de repetições (espaço amostral)
+reps <- 10000
+
+# Graus de liberdade de uma distribuição chi quadrado
+DF <- 3 
+
+# Amostragem de 10000 vetores em formato de coluna dado que N(0,1) R.V.S
+Z <- replicate(reps, rnorm(DF)) 
+
+# Cria uma columa com a soma dos quadrados da amostragem
+X <- colSums(Z^2)
+
+# Histograma da coluna da soma dos quadrados
+hist(X, 
+     freq = F, 
+     col = "steelblue", 
+     breaks = 40, 
+     ylab = "Density", 
+     main = "")
+
+# Adiciona-se a p.d.f teórica
+curve(dchisq(x, df = DF), 
+      type = 'l', 
+      lwd = 2, 
+      col = "red", 
+      add = T)
+```
+
+
+> E aqui demonstramos visualmente o Teorema do Limite Central
+
+
+```{r}
+# Matriz 2x2
+par(mfrow = c(2, 2))
+
+# S e N
+reps <- 10000
+sample.sizes <- c(5, 20, 75, 100)
+
+# set seed
+set.seed(123)
+
+# loop sobre os tamanhos de amostra 
+  for (n in sample.sizes) {
+    
+    samplemean <- rep(0, reps) #inicia o vetor de médias
+    stdsamplemean <- rep(0, reps) #inicia o vetor de médias standardizados
+
+# loop interno (loop sobre as repetições)   
+    for (i in 1:reps) {
+      x <- rbinom(n, 1, 0.5)
+      samplemean[i] <- mean(x)
+      stdsamplemean[i] <- sqrt(n)*(mean(x) - 0.5)/0.5
+    }
+    
+# Plotar histograma e gráfico para cada iteração    
+    hist(stdsamplemean, 
+         col = "steelblue", 
+         freq = FALSE, 
+         breaks = 40,
+         xlim = c(-3, 3), 
+         ylim = c(0, 0.8), 
+         xlab = paste("n =", n), 
+         main = "")
+    
+    curve(dnorm(x), 
+          lwd = 2, 
+          col = "darkred", 
+          add = TRUE)
+  }  
+```
+

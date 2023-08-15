@@ -1,0 +1,74 @@
+---
+title: "Aula 1"
+author: "Prof. Lucas Helal, MMSc, PhD"
+classoption: "portrait"
+date: "2023-08-07"
+fontsize: 10pt
+output: 
+  beamer_presentation:
+      theme: "Boadilla"
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Conhecendo a linguagem R
+
+- R: linguagem de programação de alto nível e multiparadigma, orientada à objetos
+
+- R: Otimizada para análise estatística em diversas áreas do conhecimento; C++, por exemplo, 
+é otimizada para rápido processamento 
+
+- Raciocínio muito parecido com a linguagem de humanos (alto nível)
+
+- Fraca tipagem: case sensitive, parênteses, espaços, letras erradas...
+
+
+## Fazendo conta de padeiro com a linguagem R
+
+```{r}
+# Adição
+2 + 2
+# Divisão
+2/2
+```
+
+## Aumentando um pouco o nível...
+
+```{r}
+# Logaritmos
+log(2)
+log2(3)
+# Exponenciais
+2^8
+2^(1/4)
+```
+
+## Um pouco mais...
+
+```{r}
+# trigonometria
+sin(60)
+tan(90)
+```
+
+## Ainda falta bastante...
+
+```{r}
+
+```
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
